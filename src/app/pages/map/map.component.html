@@ -1,0 +1,41 @@
+<section class="map-page">
+	<div class="map-page__layout">
+		<div class="map-page__canvas">
+			<app-leaflet-map
+				[center]="center()"
+				[zoom]="zoom"
+				[markers]="markers()"
+				(markerSelected)="onMarkerSelected($event)"
+			/>
+
+			@if (!markers().length) {
+			<p class="map-page__empty" translate>Немає ділянок із координатами.</p>
+			}
+		</div>
+
+		@if (selected(); as land) {
+		<p-card class="map-page__panel">
+			<div class="map-page__panel-header">
+				<span class="map-page__panel-title" translate>Обрана ділянка</span>
+				<p-button
+					icon="pi pi-times"
+					[text]="true"
+					[rounded]="true"
+					severity="secondary"
+					(onClick)="closePanel()"
+				/>
+			</div>
+
+			<app-land-short [entity]="land" />
+
+			<p-button
+				class="map-page__panel-action"
+				label="Переглянути ділянку"
+				icon="pi pi-arrow-right"
+				iconPos="right"
+				(onClick)="view(land)"
+			/>
+		</p-card>
+		}
+	</div>
+</section>

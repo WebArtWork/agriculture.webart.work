@@ -1,0 +1,48 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Agriculture')() }}</h1>
+		</header>
+
+		<app-lead-form kind="landowner" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Продавайте або здавайте землю з доказом її історії')() }}</h1>
+			<p>{{ translateService.translate('Замість голого оголошення "42 га в оренду" покажіть роки сівозміни, урожайності, аналізів ґрунту та обробок — це і є цифровий паспорт вашої землі.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Розмістити ділянку')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Додайте ділянку з межами, площею та статусом власності.')() }}</li>
+				<li>{{ translateService.translate('Історія ділянки формується автоматично, поки на ній працює орендар.')() }}</li>
+				<li>{{ translateService.translate('Виставте ділянку на продаж або в оренду з повною історією замість фото поля.')() }}</li>
+				<li>{{ translateService.translate('Знаходьте покупців та орендарів через маркетплейс і мапу.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Agriculture')() }}</h2>
+			<p>{{ translateService.translate('Історія прив’язана до землі, а не до орендаря чи власника — вона не зникає при зміні власника і росте в цінності з кожним сезоном.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Розмістити ділянку')() }}</button>
+		</footer>
+	</div>
+}

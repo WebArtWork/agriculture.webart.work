@@ -1,0 +1,47 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Agriculture')() }}</h1>
+		</header>
+
+		<app-lead-form kind="operator" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Пропонуйте себе як оператора техніки')() }}</h1>
+			<p>{{ translateService.translate('Трактор, комбайн, дрон — ваш профіль прив’язаний до конкретної техніки й до всіх операцій, які ви на ній виконали.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Вкажіть, з якою технікою ви працюєте.')() }}</li>
+				<li>{{ translateService.translate('Отримуйте роботу від ферм або власників техніки, яким потрібен оператор.')() }}</li>
+				<li>{{ translateService.translate('Кожна виконана операція поповнює вашу підтверджену історію.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Agriculture')() }}</h2>
+			<p>{{ translateService.translate('Ваш досвід роботи з технікою стає видимим і перевіреним, а не лишається лише усною рекомендацією.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</footer>
+	</div>
+}

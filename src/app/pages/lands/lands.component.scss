@@ -1,0 +1,42 @@
+.lands {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-4);
+}
+
+.lands__filters {
+	display: flex;
+	align-items: center;
+	gap: var(--sp-2);
+}
+
+.lands__search {
+	flex: 0 0 auto;
+	width: 200px;
+}
+
+.lands__map-link {
+	flex: 0 0 auto;
+	margin-left: auto;
+}
+
+.lands__results {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-3);
+}
+
+.lands__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--sp-4);
+}
+
+.lands__row {
+	cursor: pointer;
+}
+
+.lands__empty {
+	text-align: center;
+	color: var(--c-text-muted);
+}

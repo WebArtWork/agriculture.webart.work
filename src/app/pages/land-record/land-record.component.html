@@ -1,0 +1,12 @@
+<section class="land-record">
+	@if (entity(); as item) {
+	<app-land-record-view
+		[entity]="item"
+		[land]="land()"
+	/>
+	} @else {
+	<p-card class="land-record__not-found">
+		<p translate>Запис не знайдено.</p>
+	</p-card>
+	}
+</section>

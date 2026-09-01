@@ -1,0 +1,48 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Agriculture')() }}</h1>
+		</header>
+
+		<app-lead-form kind="farmer" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Керуйте всім господарством в одному місці')() }}</h1>
+			<p>{{ translateService.translate('Agriculture пов’язує землю, поля, культури, роботу, техніку, склади та продажі врожаю — з повною історією кожної ділянки й точною економікою по кожному полю.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Плануйте польові операції та задачі для працівників і підрядників.')() }}</li>
+				<li>{{ translateService.translate('Ведіть повну історію кожної ділянки: сівозміна, добрива, обробки, урожай.')() }}</li>
+				<li>{{ translateService.translate('Орендуйте техніку або наймайте техніку з оператором під конкретну роботу.')() }}</li>
+				<li>{{ translateService.translate('Продавайте врожай напряму покупцям через маркетплейс.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Agriculture')() }}</h2>
+			<p>{{ translateService.translate('Замість розрізнених блокнотів і таблиць — одна система, де витрати й результат по кожному полю видно одразу, а історія ділянки лишається з нею назавжди.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</footer>
+	</div>
+}

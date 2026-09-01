@@ -1,0 +1,55 @@
+<article class="card">
+	@if (land) {
+		<div class="card__list-item" (click)="viewLand()">
+			<app-land-short [entity]="land" />
+		</div>
+	}
+
+	<h2 class="card__title">{{ entity.title }}</h2>
+
+	<div class="card__meta">
+		<span class="card__badge">{{ entity.season }}</span>
+		<span class="card__badge">{{ typeLabels[entity.recordType] }}</span>
+		<span class="card__badge">{{ statusLabels[entity.status] }}</span>
+		<span class="card__badge">{{ visibilityLabels[entity.visibility] }}</span>
+		@if (entity.verified) {
+			<span class="card__badge">Перевірено</span>
+		}
+	</div>
+
+	<p>{{ entity.description }}</p>
+
+	<div class="card__row"><dt>Дата події</dt><dd>{{ entity.eventDate }}</dd></div>
+	@if (entity.crop) {
+		<div class="card__row"><dt>Культура</dt><dd>{{ entity.crop }}</dd></div>
+	}
+	@if (entity.variety) {
+		<div class="card__row"><dt>Сорт/гібрид</dt><dd>{{ entity.variety }}</dd></div>
+	}
+	@if (entity.product) {
+		<div class="card__row"><dt>Препарат</dt><dd>{{ entity.product }}</dd></div>
+	}
+	@if (entity.quantity !== null) {
+		<div class="card__row"><dt>Кількість</dt><dd>{{ entity.quantity }} {{ entity.units }}</dd></div>
+	}
+	@if (entity.cost !== null) {
+		<div class="card__row"><dt>Вартість</dt><dd>{{ entity.cost }} {{ entity.currency }}</dd></div>
+	}
+	@if (entity.yieldTonnesPerHa !== null) {
+		<div class="card__row"><dt>Урожайність</dt><dd>{{ entity.yieldTonnesPerHa }} т/га</dd></div>
+	}
+	@if (entity.totalYieldTonnes !== null) {
+		<div class="card__row"><dt>Валовий збір</dt><dd>{{ entity.totalYieldTonnes }} т</dd></div>
+	}
+	@if (entity.soilPh !== null) {
+		<div class="card__row"><dt>pH ґрунту</dt><dd>{{ entity.soilPh }}</dd></div>
+	}
+
+	@if (entity.attachments.length) {
+		<div class="card__photos">
+			@for (a of entity.attachments; track a.url) {
+				<span class="card__badge">{{ a.type }}: {{ a.url }}</span>
+			}
+		</div>
+	}
+</article>

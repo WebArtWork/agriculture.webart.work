@@ -1,0 +1,124 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-3);
+	padding: var(--sp-4);
+	background: var(--c-bg-secondary);
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-card);
+	box-shadow: var(--shadow-sm);
+}
+
+.card__title {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--c-text-secondary);
+	margin: 0;
+}
+
+.card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sp-2) var(--sp-4);
+	font-size: 0.85rem;
+	color: var(--c-text-muted);
+}
+
+.card__section-title {
+	margin: var(--sp-2) 0 0;
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--c-text-secondary);
+}
+
+.card__row {
+	display: flex;
+	justify-content: space-between;
+	gap: var(--sp-3);
+	font-size: 0.9rem;
+	color: var(--c-text-primary);
+}
+
+.card__row dt {
+	color: var(--c-text-muted);
+	font-weight: 500;
+}
+
+.card__row dd {
+	margin: 0;
+	color: var(--c-text-secondary);
+	text-align: right;
+}
+
+.card__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--sp-1) var(--sp-3);
+	border-radius: var(--radius-btn);
+	background: var(--c-bg-tertiary);
+	color: var(--c-text-secondary);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: capitalize;
+	border: 1px solid var(--c-border);
+}
+
+.card__photos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sp-2);
+}
+
+.card__photo {
+	width: 140px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: var(--radius);
+	background: var(--c-bg-tertiary);
+}
+
+.card__list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-2);
+}
+
+.card__list-item {
+	cursor: pointer;
+}
+
+.timeline {
+	display: flex;
+	flex-direction: column;
+	gap: var(--sp-1);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.timeline__row {
+	display: flex;
+	align-items: center;
+	gap: var(--sp-3);
+	padding: var(--sp-2) var(--sp-3);
+	background: var(--c-bg-tertiary);
+	border-radius: var(--radius-btn);
+	font-size: 0.9rem;
+}
+
+.timeline__season {
+	flex: 0 0 3.5rem;
+	font-weight: 700;
+	color: var(--c-text-secondary);
+}
+
+.timeline__crop {
+	flex: 1;
+	color: var(--c-text-primary);
+}
+
+.timeline__yield {
+	flex: 0 0 auto;
+	font-weight: 600;
+	color: var(--c-primary-hover);
+}

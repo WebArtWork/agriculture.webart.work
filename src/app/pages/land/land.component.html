@@ -1,0 +1,13 @@
+<section class="land">
+	@if (entity(); as item) {
+	@let rel = relations();
+	<app-land-view
+		[entity]="item"
+		[records]="rel?.records ?? []"
+	/>
+	} @else {
+	<p-card class="land__not-found">
+		<p translate>Ділянку не знайдено.</p>
+	</p-card>
+	}
+</section>

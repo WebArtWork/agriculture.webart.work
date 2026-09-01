@@ -1,0 +1,52 @@
+<article class="card">
+	<h2 class="card__title">{{ entity.name }} · {{ entity.areaHectares }} ha</h2>
+
+	<div class="card__meta">
+		<span class="card__badge">{{ ownershipStatusLabels[entity.ownershipStatus] }}</span>
+		<span class="card__badge">{{ statusLabels[entity.status] }}</span>
+		<span class="card__badge">{{ visibilityLabels[entity.visibility] }}</span>
+	</div>
+
+	<div class="card__photos">
+		@for (photo of photos; track photo) {
+			<img class="card__photo" [src]="photo" alt="" (error)="onPhotoError($event, photo)" />
+		}
+	</div>
+
+	@if (cropRotation().length) {
+		<h3 class="card__section-title">Історія сівозміни</h3>
+		<ul class="timeline">
+			@for (entry of cropRotation(); track entry.season) {
+				<li class="timeline__row">
+					<span class="timeline__season">{{ entry.season }}</span>
+					<span class="timeline__crop">{{ cropEmoji(entry.crop) }} {{ entry.crop }}</span>
+					@if (entry.yieldTonnesPerHa !== null) {
+						<span class="timeline__yield">→ {{ entry.yieldTonnesPerHa }} т/га</span>
+					}
+				</li>
+			}
+		</ul>
+	}
+
+	<div class="card__row"><dt>Регіон</dt><dd>{{ entity.region }}, {{ entity.country }}</dd></div>
+	<div class="card__row"><dt>Кадастровий номер</dt><dd>{{ entity.cadastralId }}</dd></div>
+	<div class="card__row"><dt>Тип ґрунту</dt><dd>{{ entity.soilType }}</dd></div>
+	<div class="card__row"><dt>Координати</dt><dd>{{ entity.coordinates.lat }}, {{ entity.coordinates.lng }}</dd></div>
+	@if (entity.currentCrop) {
+		<div class="card__row"><dt>Поточна культура</dt><dd>{{ entity.currentCrop }}</dd></div>
+	}
+	@if (entity.pricePerHectare !== null) {
+		<div class="card__row"><dt>Ціна за гектар</dt><dd>{{ entity.pricePerHectare }} {{ entity.currency }}</dd></div>
+	}
+
+	@if (historyRecords().length) {
+		<h3 class="card__section-title">Повна історія ділянки</h3>
+		<div class="card__list">
+			@for (record of historyRecords(); track record._id) {
+				<div class="card__list-item" (click)="viewRecord(record)">
+					<app-land-record-short [entity]="record" />
+				</div>
+			}
+		</div>
+	}
+</article>

@@ -1,0 +1,24 @@
+<article class="short">
+	<img
+		class="short__thumb"
+		[src]="photo"
+		[alt]="entity.name"
+		loading="lazy"
+		(error)="onPhotoError($event)"
+	/>
+
+	<div class="short__body">
+		<h3 class="short__title">{{ entity.name }} · {{ entity.region }}</h3>
+		<p class="short__address">{{ entity.areaHectares }} ha · {{ entity.soilType }}</p>
+
+		<div class="short__meta">
+			<span>{{ ownershipStatusLabels[entity.ownershipStatus] }}</span>
+			@if (entity.currentCrop) {
+				<span>{{ entity.currentCrop }}</span>
+			}
+			@if (entity.pricePerHectare !== null) {
+				<span>{{ entity.pricePerHectare }} {{ entity.currency }}/ha</span>
+			}
+		</div>
+	</div>
+</article>

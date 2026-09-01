@@ -1,0 +1,26 @@
+<section class="editor">
+	<p-card header="Редактор">
+		<div class="editor__picker">
+			<p-selectbutton
+				[options]="options"
+				optionLabel="label"
+				optionValue="value"
+				[ngModel]="selectedType()"
+				(ngModelChange)="selectedType.set($event)"
+			/>
+		</div>
+
+		@switch (selectedType()) {
+			@case ('land') {
+				<app-land-form />
+			}
+			@case ('land-record') {
+				<app-land-record-form />
+			}
+		}
+
+		<div class="editor__actions">
+			<button pButton type="button" translate (click)="wValidate()">Перевірити</button>
+		</div>
+	</p-card>
+</section>

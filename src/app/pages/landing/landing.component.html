@@ -1,0 +1,39 @@
+<main class="landing flex min-h-full flex-col items-center justify-center gap-8 p-6 text-center">
+	<img
+		src="/logo.png?v=20260901-agriculture-mark"
+		alt=""
+		class="block w-[clamp(140px,25vw,280px)] h-auto"
+		height="1254"
+		width="1254"
+	/>
+
+	<div class="flex max-w-[560px] flex-col gap-4">
+		<h1 class="m-0 text-3xl font-bold text-[var(--c-text-primary)] md:text-4xl" translate>
+			Agriculture
+		</h1>
+
+		<p class="m-0 text-[var(--c-text-secondary)]" translate>
+			Земля, ферма, культури, робота, техніка, урожай і покупці — в одній екосистемі, з повною історією кожної ділянки.
+		</p>
+	</div>
+
+	<div class="flex flex-wrap items-center justify-center gap-3">
+		<a pButton routerLink="/sign" severity="primary" translate>Почати</a>
+		<a pButton routerLink="/for-farmers" severity="secondary" translate>Для фермерів</a>
+		<a pButton routerLink="/for-landowners" severity="secondary" translate>Для власників землі</a>
+		<a pButton routerLink="/for-buyers" severity="secondary" translate>Для покупців врожаю</a>
+	</div>
+
+	<div class="flex max-w-[720px] flex-col gap-3">
+		<h2 class="m-0 text-lg font-semibold text-[var(--c-text-primary)]" translate>Мережа Agriculture</h2>
+		<div class="flex flex-wrap items-center justify-center gap-2">
+			@for (role of roleLinks; track role.path) {
+				<a
+					[routerLink]="role.path"
+					class="rounded-full border border-[var(--c-border)] px-3 py-1 text-sm text-[var(--c-text-secondary)] no-underline hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
+					[translate]="role.label"
+				></a>
+			}
+		</div>
+	</div>
+</main>

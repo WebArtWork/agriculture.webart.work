@@ -1,0 +1,48 @@
+@if (showForm()) {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Приєднатися до Agriculture')() }}</h1>
+		</header>
+
+		<app-lead-form kind="agronomist" [submitLabel]="translateService.translate('Надіслати заявку')()" />
+	</div>
+} @else {
+	<div class="landing-page">
+		<header class="landing-page__hero">
+			<h1>{{ translateService.translate('Плануйте сівозміну й доглядайте за полями з повною історією ділянки')() }}</h1>
+			<p>{{ translateService.translate('Agriculture дає агроному цифровий паспорт кожної ділянки — сівозміну, обробки ґрунту, живлення, захист рослин і урожайність — щоб планувати наступний сезон на фактах, а не на пам’яті.')() }}</p>
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</header>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Як це працює')() }}</h2>
+			<ul class="landing-page__list">
+				<li>{{ translateService.translate('Відкривайте історію ділянки перед плануванням: сівозміну, добрива, обробки та урожай за попередні роки.')() }}</li>
+				<li>{{ translateService.translate('Плануйте сівозміну, ґрунтообробку, внесення добрив і захист рослин по кожному полю.')() }}</li>
+				<li>{{ translateService.translate('Слідкуйте за станом посівів і фіксуйте спостереження прямо в польових записах.')() }}</li>
+				<li>{{ translateService.translate('Ставте задачі працівникам і підрядникам на виконання агрозаходів.')() }}</li>
+			</ul>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Чому Agriculture')() }}</h2>
+			<p>{{ translateService.translate('Замість розрізнених нотаток по кожному полю — єдина система, де історія ділянки завжди під рукою, а рекомендації спираються на реальні дані, а не на здогадки.')() }}</p>
+		</section>
+
+		<section class="landing-page__section">
+			<h2>{{ translateService.translate('Питання')() }}</h2>
+			<p-accordion [multiple]="true">
+				@for (item of faq; track item.question) {
+					<p-accordionpanel [value]="item.question">
+						<p-accordionheader>{{ translateService.translate(item.question)() }}</p-accordionheader>
+						<p-accordioncontent>{{ translateService.translate(item.answer)() }}</p-accordioncontent>
+					</p-accordionpanel>
+				}
+			</p-accordion>
+		</section>
+
+		<footer class="landing-page__cta">
+			<button pButton type="button" (click)="showForm.set(true)">{{ translateService.translate('Приєднатися')() }}</button>
+		</footer>
+	</div>
+}

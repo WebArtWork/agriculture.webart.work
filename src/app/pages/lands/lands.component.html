@@ -1,0 +1,25 @@
+<section class="lands">
+	<div class="lands__filters">
+		<input
+			id="lands-search"
+			pInputText
+			type="text"
+			[placeholder]="translateService.translate('Назва, регіон або культура')()"
+			class="lands__search"
+			[ngModel]="searchTerm()"
+			(ngModelChange)="searchTerm.set($event)"
+		/>
+	</div>
+
+	<div class="lands__results">
+		<div class="lands__grid">
+			@for (item of results(); track item._id) {
+			<div class="lands__row" (click)="view(item)">
+				<app-land-short [entity]="item" />
+			</div>
+			} @empty {
+			<p class="lands__empty" translate>За заданим запитом ділянок не знайдено.</p>
+			}
+		</div>
+	</div>
+</section>

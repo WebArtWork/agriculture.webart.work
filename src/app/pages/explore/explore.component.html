@@ -1,0 +1,51 @@
+<div class="explore">
+	<div class="explore__header">
+		<h1 class="explore__title" translate>Пошук</h1>
+
+		<input
+			pInputText
+			type="text"
+			placeholder="Назва, регіон або країна"
+			class="explore__search"
+			[ngModel]="searchTerm()"
+			(ngModelChange)="searchTerm.set($event)"
+		/>
+
+		<p-multiSelect
+			appendTo="body"
+			scrollHeight="auto"
+			[options]="ownershipStatusOptions"
+			optionLabel="label"
+			optionValue="value"
+			placeholder="Статус власності"
+			class="explore__filter"
+			[ngModel]="selectedOwnershipStatuses()"
+			(ngModelChange)="selectedOwnershipStatuses.set($event)"
+		/>
+
+		<p-select
+			appendTo="body"
+			scrollHeight="auto"
+			[options]="cropOptions"
+			optionLabel="label"
+			optionValue="value"
+			placeholder="Культура"
+			[showClear]="true"
+			class="explore__filter"
+			[ngModel]="selectedCrop()"
+			(ngModelChange)="selectedCrop.set($event)"
+		/>
+
+		<a pButton routerLink="/map" severity="secondary" size="small" class="explore__map-link" translate>Карта</a>
+	</div>
+
+	<div class="explore__grid">
+		@for (item of results(); track item._id) {
+		<div class="explore__row" (click)="view(item)">
+			<app-land-short [entity]="item" />
+		</div>
+		} @empty {
+		<p class="explore__empty" translate>За заданими критеріями ділянок не знайдено.</p>
+		}
+	</div>
+</div>

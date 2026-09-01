@@ -1,0 +1,57 @@
+<form class="form" [formGroup]="form">
+	<div class="form__field">
+		<label class="form__label" for="name" translate>Назва ділянки</label>
+		<input id="name" pInputText class="form__control" type="text" [formControlName]="'name'" [class._invalid]="form.get('name')?.invalid && form.get('name')?.touched" />
+		@if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+			<span class="form__error" translate>Назва обов'язкова</span>
+		}
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="country" translate>Країна</label>
+		<input id="country" pInputText class="form__control" type="text" [formControlName]="'country'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="region" translate>Регіон</label>
+		<input id="region" pInputText class="form__control" type="text" [formControlName]="'region'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="areaHectares" translate>Площа (га)</label>
+		<p-inputnumber id="areaHectares" formControlName="areaHectares" [invalid]="form.get('areaHectares')?.invalid && form.get('areaHectares')?.touched" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="cadastralId" translate>Кадастровий номер</label>
+		<input id="cadastralId" pInputText class="form__control" type="text" [formControlName]="'cadastralId'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="soilType" translate>Тип ґрунту</label>
+		<input id="soilType" pInputText class="form__control" type="text" [formControlName]="'soilType'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="ownershipStatus" translate>Статус власності</label>
+		<p-select id="ownershipStatus" formControlName="ownershipStatus" [options]="ownershipStatusOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="status" translate>Статус</label>
+		<p-select id="status" formControlName="status" [options]="statusOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="visibility" translate>Видимість</label>
+		<p-select id="visibility" formControlName="visibility" [options]="visibilityOptions" optionLabel="label" optionValue="value" appendTo="body" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="currentCrop" translate>Поточна культура</label>
+		<input id="currentCrop" pInputText class="form__control" type="text" [formControlName]="'currentCrop'" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="pricePerHectare" translate>Ціна за гектар</label>
+		<p-inputnumber id="pricePerHectare" formControlName="pricePerHectare" />
+	</div>
+	<div class="form__field">
+		<label class="form__label" for="currency" translate>Валюта</label>
+		<input id="currency" pInputText class="form__control" type="text" [formControlName]="'currency'" />
+	</div>
+
+	<div class="form__actions">
+		<button type="button" pButton class="form__submit" [disabled]="form.invalid"><span translate>Зберегти</span></button>
+	</div>
+</form>
