@@ -89,6 +89,15 @@
 
 	<app-nav-icon
 		[class.sidebar--minimized-icon]="!showNames()"
+		[name]="showNames() ? translateService.translate('Поділитися')() : ''"
+		[ariaLabel]="translateService.translate('Поділитися')()"
+		(click)="closeIfOverlay()"
+		routerLink="/share"
+		icon="share-alt"
+	/>
+
+	<app-nav-icon
+		[class.sidebar--minimized-icon]="!showNames()"
 		[name]="showNames() ? translateService.translate('Settings')() : ''"
 		[ariaLabel]="translateService.translate('Settings')()"
 		(click)="closeIfOverlay()"

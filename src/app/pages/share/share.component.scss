@@ -1,0 +1,8 @@
+.share { display: grid; justify-items: center; gap: var(--sp-4); max-width: 480px; margin: 0 auto; padding: var(--sp-4) 0; text-align: center; }
+.share__hero { display: grid; gap: var(--sp-2); }
+.share__hero h1 { margin: 0; }
+.share__hero p { margin: 0; color: var(--c-text-muted); }
+.share__qr { display: inline-flex; padding: var(--sp-3); background: #fff; border-radius: var(--radius-card); box-shadow: var(--shadow-sm); }
+.share__link { display: grid; justify-items: center; gap: var(--sp-3); max-width: 100%; }
+.share__link code { overflow-wrap: anywhere; color: var(--c-text-secondary); font-size: .85rem; }
+.share__link button { display: inline-flex; align-items: center; gap: var(--sp-2); }

@@ -1,0 +1,18 @@
+<div class="share">
+	<header class="share__hero">
+		<h1 translate>Запросити в Agriculture</h1>
+		<p translate>Відскануйте QR-код, щоб приєднатися до Agriculture за кілька секунд.</p>
+	</header>
+
+	<div class="share__qr">
+		<app-qr-code [value]="shareUrl()" [size]="240" />
+	</div>
+
+	<div class="share__link">
+		<code>{{ shareUrl() }}</code>
+		<button pButton type="button" severity="secondary" size="small" (click)="copyLink()">
+			<i class="pi pi-copy"></i>
+			<span translate>Скопіювати посилання</span>
+		</button>
+	</div>
+</div>
