@@ -9,16 +9,16 @@ import { TranslateDirective } from '@wawjs/ngx-translate';
 })
 export class LandingComponent {
 	readonly roleLinks: { path: string; label: string }[] = [
-		{ path: '/for-farmers', label: 'Фермер' },
-		{ path: '/for-landowners', label: 'Власник землі' },
-		{ path: '/for-workers', label: 'Працівник' },
-		{ path: '/for-businesses', label: 'Бізнес' },
-		{ path: '/for-operators', label: 'Оператор техніки' },
-		{ path: '/for-suppliers', label: 'Постачальник' },
-		{ path: '/for-equipment-owners', label: 'Власник техніки' },
-		{ path: '/for-buyers', label: 'Покупець' },
-		{ path: '/for-storage', label: 'Оператор зберігання' },
-		{ path: '/for-logistics', label: 'Логістичний партнер' },
-		{ path: '/for-agronomists', label: 'Агроном' },
+		{ path: '/for-farmers', label: 'Для фермерів' },
+		{ path: '/for-landowners', label: 'Для власників землі' },
+		{ path: '/for-agronomists', label: 'Для агрономів' },
+		{ path: '/for-workers', label: 'Для працівників' },
+		{ path: '/for-businesses', label: 'Для агробізнесу' },
+		{ path: '/for-operators', label: 'Для операторів техніки' },
+		{ path: '/for-suppliers', label: 'Для постачальників' },
+		{ path: '/for-equipment-owners', label: 'Для власників техніки' },
+		{ path: '/for-buyers', label: 'Для покупців врожаю' },
+		{ path: '/for-storage', label: 'Для операторів зберігання' },
+		{ path: '/for-logistics', label: 'Для логістичних партнерів' },
 	];
 }

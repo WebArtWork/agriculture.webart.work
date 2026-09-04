@@ -17,23 +17,48 @@
 		</p>
 	</div>
 
-	<div class="flex flex-wrap items-center justify-center gap-3">
-		<a pButton routerLink="/sign" severity="primary" translate>Почати</a>
-		<a pButton routerLink="/for-farmers" severity="secondary" translate>Для фермерів</a>
-		<a pButton routerLink="/for-landowners" severity="secondary" translate>Для власників землі</a>
-		<a pButton routerLink="/for-buyers" severity="secondary" translate>Для покупців врожаю</a>
-	</div>
-
-	<div class="flex max-w-[720px] flex-col gap-3">
+	<div class="flex max-w-[820px] flex-col gap-3">
 		<h2 class="m-0 text-lg font-semibold text-[var(--c-text-primary)]" translate>Мережа Agriculture</h2>
-		<div class="flex flex-wrap items-center justify-center gap-2">
+		<div class="flex flex-wrap items-center justify-center gap-3">
 			@for (role of roleLinks; track role.path) {
-				<a
-					[routerLink]="role.path"
-					class="rounded-full border border-[var(--c-border)] px-3 py-1 text-sm text-[var(--c-text-secondary)] no-underline hover:border-[var(--c-primary)] hover:text-[var(--c-primary)]"
-					[translate]="role.label"
-				></a>
+				<a pButton [outlined]="true" severity="secondary" [routerLink]="role.path" [translate]="role.label"></a>
 			}
 		</div>
 	</div>
 </main>
+
+<section class="landing__scenario w-full px-6 pb-16 md:px-10">
+	<div
+		class="mx-auto grid max-w-5xl grid-cols-1 gap-5 overflow-hidden rounded-2xl border border-[var(--c-border)] md:grid-cols-2"
+	>
+		<div class="flex flex-col gap-4 bg-[var(--c-bg-secondary)] p-8 text-left">
+			<span
+				class="inline-flex w-fit items-center gap-2 rounded-full bg-[var(--c-secondary)] px-3 py-1 text-sm font-semibold text-white"
+				translate
+				>Знайома ситуація</span
+			>
+			<p class="m-0 text-base text-[var(--c-text-primary)]" translate>
+				Постачальник насіння, добрив чи техніки продає ферму лише
+				один раз — і на цьому знайомство закінчується: ферма не
+				підтверджує, що куплене реально використали, а сам
+				постачальник не може показати нікому свою репутацію, крім
+				усних відгуків.
+			</p>
+		</div>
+
+		<div class="flex flex-col gap-4 p-8 text-left">
+			<span
+				class="inline-flex w-fit items-center gap-2 rounded-full bg-[var(--c-primary)] px-3 py-1 text-sm font-semibold text-white"
+				translate
+				>Навіщо вести цифровий паспорт</span
+			>
+			<p class="m-0 text-base text-[var(--c-text-primary)]" translate>
+				Кожна поставка, робота чи оренда техніки, записана в
+				цифровому паспорті ділянки, стає підтвердженою історією
+				постачальника — фермери бачать її ще до угоди, і це
+				перетворює разовий продаж на довгострокову довіру та нові
+				замовлення.
+			</p>
+		</div>
+	</div>
+</section>
