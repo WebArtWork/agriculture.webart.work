@@ -1,0 +1,26 @@
+<section class="jobs">
+	<header class="jobs__header">
+		<h1 translate>Робота</h1>
+		<p translate>
+			Вакансії та підряди на фермах поруч із вами. Розділ у розробці — незабаром тут з’являться реальні оголошення.
+		</p>
+	</header>
+
+	<div class="jobs__grid">
+		@for (item of items; track item.title) {
+			<p-card class="jobs__card">
+				<div class="jobs__card-body">
+					<i class="{{ item.icon }}"></i>
+					<h3>{{ translateService.translate(item.title)() }}</h3>
+					<p>{{ translateService.translate(item.description)() }}</p>
+				</div>
+			</p-card>
+		}
+	</div>
+
+	<footer class="jobs__footer">
+		<button pButton type="button" disabled>
+			<span translate>Скоро можна буде розмістити вакансію</span>
+		</button>
+	</footer>
+</section>

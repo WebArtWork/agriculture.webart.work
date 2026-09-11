@@ -120,6 +120,36 @@ export const routes: Routes = [
 					),
 			},
 			{
+				path: 'equipment',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Обладнання',
+						description:
+							'Орендуйте техніку та обладнання для польових робіт на платформі Agriculture.',
+					},
+				},
+				loadChildren: () =>
+					import('./pages/equipment/equipment.routes').then(
+						(m) => m.routes,
+					),
+			},
+			{
+				path: 'jobs',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Робота',
+						description:
+							'Знаходьте роботу та підряди на фермах поруч із вами на платформі Agriculture.',
+					},
+				},
+				loadChildren: () =>
+					import('./pages/jobs/jobs.routes').then(
+						(m) => m.routes,
+					),
+			},
+			{
 				path: 'feed',
 				canActivate: [MetaGuard],
 				data: {

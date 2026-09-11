@@ -197,12 +197,7 @@ export const wawjsConfig = {
 
 	http: { url: environment.url },
 	socket: environment.production,
-	network: environment.production
-		? DEFAULT_NETWORK_CONFIG
-		: {
-				...DEFAULT_NETWORK_CONFIG,
-				endpoints: ['http://localhost:4200/status'],
-			},
+	network: DEFAULT_NETWORK_CONFIG,
 	meta: {
 		warnMissingGuard: false,
 		useTitleSuffix: true,
