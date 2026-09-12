@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-C4gB1f7_.js`).then(o=>o.LandRecordComponent)}];export{t as routes};

@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-CbSRTqnw2.js`).then(o=>o.LandsComponent)}];export{t as routes};

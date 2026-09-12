@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-DDGsFNam2.js`).then(o=>o.ForAgronomistsPageComponent)}];export{t as routes};

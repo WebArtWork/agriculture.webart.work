@@ -1,0 +1,1 @@
+var t=[{path:``,loadComponent:()=>import(`./chunk-BwtucEAL.js`).then(o=>o.LandComponent)}];export{t as routes};
