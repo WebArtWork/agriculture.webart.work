@@ -119,6 +119,6 @@ export class SidebarService {
 			) as WebSidebarMode | null;
 			if (v === 'shown' || v === 'minimized' || v === 'hidden') return v;
 		} catch {}
-		return 'shown';
+		return 'hidden';
 	}
 }
